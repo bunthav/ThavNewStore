@@ -35,16 +35,17 @@
                     <?php echo ($p == 'slideshow' ? 'active' : ''); ?>">
                         <i class="fa fa-image me-2"></i>SlideShow
                     </a>
-                    <a href="index.php?p=products" class="nav-item nav-link 
-                    <?php echo ($p == 'products' ? 'active' : ''); ?>">
-                        <i class="fa fa-bag-shopping me-2"></i>Products
-                    </a>
-
+                    
                     <a href="index.php?p=category" class="nav-item nav-link 
                     <?php echo ($p == "category" ? 'active' : ''); ?>">
                         <i class="fa fa-table me-2"></i>Category
                     </a>
 
+                    <a href="index.php?p=products" class="nav-item nav-link 
+                    <?php echo ($p == 'products' ? 'active' : ''); ?>">
+                        <i class="fa fa-bag-shopping me-2"></i>Products
+                    </a>
+                    
                     <a href="index.php?p=orders" class="nav-item nav-link 
                     <?php echo ($p == "orders" ? 'active': ''); ?>"
                     >

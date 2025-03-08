@@ -1,7 +1,7 @@
 <?php
-	include "./lib/fdb.php";
-	include "./lib/config.php";
-	include "./lib/oopdb.php";
+	include "./admin/lib/config.php";
+	include "./admin/lib/fdb.php";
+	include "./admin/lib/oopdb.php";
 
 	$page = "home.php";
 	$p = "home";

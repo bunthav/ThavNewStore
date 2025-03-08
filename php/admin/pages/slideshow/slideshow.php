@@ -37,7 +37,7 @@ else{ ?>
         <title>Slideshow Management</title>
     </head>
     <body>
-        <div class="col-sm-12 col-xl-12">
+        <div class="col-sm-12 col-xl-12 p-4">
             <div class="bg-secondary rounded h-100 p-4">
                 <h6 class="mb-4">Add New Slide</h6>
 
@@ -99,7 +99,7 @@ else{ ?>
                 </form>
             </div>
         </div>
-        <div class="col-12">
+        <div class="col-12 p-4">
             <div class="bg-secondary rounded h-100 p-4">
                 <h6 class="mb-4">Slideshow Table</h6>
                 <div class="table-responsive">
@@ -118,8 +118,8 @@ else{ ?>
                         </thead>
                         <tbody>
                             <?php if ($data): ?>
+                                
                                 <!-- index is just number for count start from 0 -->
-
                                 <?php foreach ($data as $index => $row):?>
                                     <tr>
                                         <th scope="row"><?php echo $index + 1; ?></th>
