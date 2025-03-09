@@ -1,7 +1,7 @@
 <?php
-	include "./lib/fdb.php";
-	include "./lib/config.php";
-	include "./lib/oopdb.php";
+	include "./admin/lib/config.php";
+	include "./admin/lib/fdb.php";
+	include "./admin/lib/oopdb.php";
 
 	$page = "home.php";
 	$p = "home";
@@ -46,7 +46,8 @@
 <html lang="en">
 <style>
 		.active {
-			color: rgb(0, 0, 0) !important; 
+			color: rgb(159, 229, 255) !important;
+			font-weight: bolder !important; 
 		}
 </style>
 <?php include "include/head.php"?>

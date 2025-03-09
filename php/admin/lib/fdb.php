@@ -134,6 +134,28 @@
 		dbClose($conn);
 		return $num;
 	}
+	// Performs an INNER JOIN between two tables and returns the result
+	function dbInnerJoin($table1, $table2, $onCondition, $column = "*", $criteria = "", $clause = "")
+	{
+		if (empty($table1) || empty($table2) || empty($onCondition)) {
+			return false;
+		}
+		$sql = "SELECT " . $column . " FROM " . $table1 . " INNER JOIN " . $table2 . " ON " . $onCondition;
+		if (!empty($criteria)) {
+			$sql .= " WHERE " . $criteria;
+		}
+		if (!empty($clause)) {
+			$sql .= " " . $clause;
+		}
+		$conn = dbConn();
+		$result = mysqli_query($conn, $sql);
+		if (!$result) {
+			echo "Error in INNER JOIN: " . mysqli_error($conn);
+			return false;
+		}
+		dbClose($conn);
+		return $result;
+	}
 
 
 ?>
