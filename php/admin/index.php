@@ -22,6 +22,11 @@ if (isset($_GET['p'])) {
             $insert = "./pages/admin/adminhandle.php";
             $dashboard = false;
             break;
+        case "design":
+            $page = "./pages/design/design.php";
+            $insert = "./pages/design/designhandle.php";
+            $dashboard = false;
+            break;
         case "slideshow":
             $page = "./pages/slideshow/slideshow.php";
             $insert = "./pages/slideshow/slideshowhandle.php";
@@ -31,7 +36,7 @@ if (isset($_GET['p'])) {
         case "products":
             $page = "./pages/products/products.php";
             $insert = "./pages/products/productshandle.php";
-            
+            $update = "./pages/products/productsupdatehandle.php";
             $dashboard = false;
             break;
         case "category":
@@ -72,8 +77,8 @@ if (isset($_GET['p'])) {
             <?php include "include/header.php" ?>
 
             <?php if (!$dashboard) {
-                include "$update"; // Always include this when p=slideshow
-                include "$insert"; // Includes slideshowhandle.php
+                if(!empty($update))include "$update"; 
+                include "$insert"; 
             } ?>
 
                 

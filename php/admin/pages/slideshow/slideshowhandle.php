@@ -5,7 +5,6 @@ if (!is_dir($uploadDir)) {
     mkdir($uploadDir, 0755, true);
 }
 
-// Handle slideshow form submission
 if (isset($_POST['insert']) && $p === 'slideshow') { 
     $fileName = "";
     $sucORerr = 1;
@@ -62,7 +61,6 @@ if (isset($_POST['insert']) && $p === 'slideshow') {
             "ssenable" => $_POST['ssenable'],
         ];
 
-        // Use dbInsert() to insert data
         if (dbInsert($table, $data)) {
             $alertType = "success";
             $alertMessage = "Slide added successfully!";

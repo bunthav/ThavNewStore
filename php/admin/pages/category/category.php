@@ -5,36 +5,13 @@ $catdata = dbSelect($table);
 if (isset($_POST['edit']) && $p === "category") {
     $id = $_POST['id'];
     include './pages/category/categoryupdate.php';
-} elseif (isset($_POST['delete']) && $p === "category") {
-    $id = $_POST['id'];
-    $criteria = "catid = $id";
-    if (dbDelete($table, $criteria)) {
-        echo '<div class="alert alert-success">Slide deleted successfully!</div>'; ?>
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-<?php
-    } else {
-        $alertType = "danger";
-        $alertMessage = "Error deleting category.";
-    }
-    //  Display Alert Messages 
-    if (isset($alertType) && isset($alertMessage)): ?>
-        <div class="col-sm-12 col-xl-12">
-            <div class="bg-secondary rounded h-100 p-4">
-                <div class="alert alert-<?php echo $alertType; ?> alert-dismissible fade show" role="alert">
-                    <i class="fa fa-exclamation-circle me-2"></i><?php echo $alertMessage; ?>
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                </div>
-            </div>
-        </div>
-    <?php
-    endif;
-} else {
+}
+ else {
 
 
 ?>
 
 
-    <!-- Add Category Form -->
     <div class="col-sm-12 col-xl-12 p-4">
         <div class="bg-secondary rounded h-100 p-4">
             <h6 class="mb-4">Add Category</h6>
@@ -56,7 +33,6 @@ if (isset($_POST['edit']) && $p === "category") {
         </div>
     </div>
 
-    <!-- Display All Categories -->
     <div class="col-sm-12 col-xl-12 p-4">
         <div class="bg-secondary rounded h-100 p-4">
             <h6 class="mb-4">All Categories</h6>

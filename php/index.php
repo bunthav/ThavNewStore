@@ -46,7 +46,8 @@
 <html lang="en">
 <style>
 		.active {
-			color: rgb(0, 0, 0) !important; 
+			color: rgb(159, 229, 255) !important;
+			font-weight: bolder !important; 
 		}
 </style>
 <?php include "include/head.php"?>

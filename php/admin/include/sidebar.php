@@ -31,6 +31,12 @@
                     <?php echo ($p == 'dashboard' || empty($p) ? 'active' : ''); ?>">
                         <i class="fa fa-tachometer-alt me-2"></i>Dashboard
                     </a>
+
+                    <a href="index.php?p=design" class="nav-item nav-link 
+                    <?php echo ($p == 'design' ? 'active' : ''); ?>">
+                        <i class="fa fa-image me-2"></i>Design
+                    </a>
+
                     <a href="index.php?p=slideshow" class="nav-item nav-link 
                     <?php echo ($p == 'slideshow' ? 'active' : ''); ?>">
                         <i class="fa fa-image me-2"></i>SlideShow
