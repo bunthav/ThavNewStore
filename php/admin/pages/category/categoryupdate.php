@@ -33,11 +33,11 @@ if (!$catdata) {
                 <label for="floatingInput">Name of category</label>
             </div>
             <div class="form-floating mb-3">
-                <input type="text" class="form-control" value="<?= $catdescription ?>" name="catdescription" required id="floatingPassword" placeholder="Password">
+                <input type="text" class="form-control" value="<?= $catdescription ?>" name="catdescription" id="floatingPassword" placeholder="Password">
                 <label for="floatingInput">Category description</label>
             </div>
             <div class="form-floating mb-3">
-                <input type="file" name="catimage" required accept="image/*" class="form-control" id="inputBigImage" placeholder="Category image">
+                <input type="file" name="catimage" accept="image/*" class="form-control" id="inputBigImage" placeholder="Category image">
             </div>
             <br>
             <label> the current image is : <img src="./img/cat/<?php echo $catimage; ?>" width="200" alt="Current Image"> </label>
