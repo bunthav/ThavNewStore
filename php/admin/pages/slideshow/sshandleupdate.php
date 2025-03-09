@@ -28,10 +28,6 @@ if (isset($_POST['update']) && $_GET['p'] === 'slideshow') {
             die("Error uploading file.");
         }
 
-        if ($fileSize > 2 * 1024 * 1024) {
-            die("Error: File size exceeds 2MB.");
-        }
-
         $finfo = finfo_open(FILEINFO_MIME_TYPE);
         $mime = finfo_file($finfo, $fileTmp);
         finfo_close($finfo);
