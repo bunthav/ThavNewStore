@@ -1,30 +1,30 @@
 <?php
-$catdir = __DIR__ . "/../../img/cat/";
-if (!is_dir($catdir)) {
-    mkdir($catdir, 0755, true);
+$smdir = __DIR__ . "/../../img/shipment/";
+if (!is_dir($smdir)) {
+    mkdir($smdir, 0755, true);
 }
 
 $errors = [];
 $sucORerr = 1;
 $success = '';
 
-if (isset($_POST['insert']) && $_GET['p'] === 'category') {
-    $catname = $_POST['catname'];
-    $catdescription = $_POST['catdescription'];
+if (isset($_POST['insert']) && $_GET['p'] === 'shipment') {
+    $smname = $_POST['smname'];
+    $smdescription = $_POST['smdescription'];
+    $smprice = $_POST['smprice'];
 
-    if (empty($_FILES['catimage']['tmp_name'])) {
+    if (empty($_FILES['smimage']['tmp_name'])) {
         $errors[] = "Please select one image.";
         $sucORerr = 0;
     } else {
-        $imgname = $_FILES['catimage']['name'];
-        $imgtmp = $_FILES['catimage']['tmp_name'];
+        $imgname = $_FILES['smimage']['name'];
+        $imgtmp = $_FILES['smimage']['tmp_name'];
         $fileType = mime_content_type($imgtmp);
         $allowTypes = ['image/jpeg', 'image/png', 'image/gif', 'image/jpg', 'image/webp'];
         // if want to use in_array(whatUWant,findInWhat)
         if (in_array($fileType, $allowTypes)) {
-            $fincatdir = $catdir . $imgname;
-            // Move the file (overwrite if exists)
-            if (move_uploaded_file($imgtmp, $fincatdir)) {
+            $finsmdir = $smdir . $imgname;
+            if (move_uploaded_file($imgtmp, $finsmdir)) {
                 $success = "File uploaded successfully: $imgname.";
             } else {
                 $errors[] = "Failed to upload $imgname.";
@@ -37,11 +37,12 @@ if (isset($_POST['insert']) && $_GET['p'] === 'category') {
     }
 
     if ($sucORerr) {
-        $table = "category";
+        $table = "shipment";
         $data = [
-            'catname' => $catname,
-            'catdescription' => $catdescription,
-            'catimage' => $imgname
+            'smname' => $smname,
+            'smdescription' => $smdescription,
+            'smprice' => $smprice,
+            'smimage' => $imgname
         ];
 
         if (dbInsert($table, $data)) {

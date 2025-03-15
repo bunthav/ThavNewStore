@@ -14,7 +14,7 @@ $id = "";
 
 if (isset($_GET['p'])) {
     $p = $_GET['p'];
-    $id = $_GET['inid'] ?? ''; // Assign $id if 'id' is provided in the URL
+    $id = $_GET['inid'] ?? ''; 
 
     switch ($p) {
         case "admin":
@@ -22,19 +22,33 @@ if (isset($_GET['p'])) {
             $insert = "./pages/admin/adminhandle.php";
             $dashboard = false;
             break;
+        case "design":
+            $page = "./pages/design/design.php";
+            $insert = "./pages/design/designhandle.php";
+            $dashboard = false;
+            break;
         case "slideshow":
             $page = "./pages/slideshow/slideshow.php";
             $insert = "./pages/slideshow/slideshowhandle.php";
+            $update = "./pages/slideshow/sshandleupdate.php";
             $dashboard = false;
             break;
         case "products":
             $page = "./pages/products/products.php";
             $insert = "./pages/products/productshandle.php";
+            $update = "./pages/products/productsupdatehandle.php";
             $dashboard = false;
             break;
         case "category":
             $page = "./pages/category/category.php";
             $insert = "./pages/category/categoryhandle.php";
+            $update = "./pages/category/categoryupdatehandle.php";
+            $dashboard = false;
+            break;
+        case "shipment":
+            $page = "./pages/shipments/shipment.php";
+            $insert = "./pages/shipments/shipmenthandle.php";
+            $update = "./pages/shipments/shipmentupdatehandle.php";
             $dashboard = false;
             break;
         case "orders":
@@ -45,6 +59,11 @@ if (isset($_GET['p'])) {
         case "accounts":
             $page = "./pages/cusAccounts/accounts.php";
             $insert = "./pages/cusAccounts/accountshandle.php";
+            $dashboard = false;
+            break;
+        case "test":
+            $page = "./test/test.php";
+            $insert = "./test/testhandle.php";
             $dashboard = false;
             break;
         default:
@@ -69,8 +88,8 @@ if (isset($_GET['p'])) {
             <?php include "include/header.php" ?>
 
             <?php if (!$dashboard) {
-                include "./pages/slideshow/sshandleupdate.php"; // Always include this when p=slideshow
-                include "$insert"; // Includes slideshowhandle.php
+                if(!empty($update))include "$update"; 
+                include "$insert"; 
             } ?>
 
                 

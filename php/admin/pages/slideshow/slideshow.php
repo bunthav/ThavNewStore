@@ -2,47 +2,29 @@
 $table = "slideshow";
 $data = dbSelect($table);
 $id = "";
-if(isset($_GET['inid'])) {
-    $id = $_GET['inid'];
+if (isset($_POST['edit'])) {
+    $id = $_POST['ssid'];
     include "./pages/slideshow/ssupdate.php";
-}
-elseif(isset($_GET['deid'])) {
-    $id = $_GET['deid'];
-    $table = "slideshow";
-    $criteria = "ssid = $id";
-    $result = dbSelect($table, "*", $criteria);
-    if ($result) {
-        $row = mysqli_fetch_assoc($result);
-        $image = $row['ssimage'];
-        $dest = $uploadDir . $image;
-        if (file_exists($dest)) {
-            unlink($dest);
-        }
-        $criteria = "ssid = $id";
-        $result = dbDelete($table, $criteria);
-        if ($result) {
-            $success = "Record deleted successfully.";
-            echo '<div class="alert alert-success">Slide deleted successfully!</div>';
-        } else {
-            $errors[] = "Failed to delete record.";
-        }
-    }
-}
-else{ ?>
+// } elseif (isset($_GET['deid'])) {
+//     $id = $_GET['deid'];
+//     include "./pages/slideshow/sshandleupdate.php";
+} else { ?>
     <!DOCTYPE html>
     <html lang="en">
+
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Slideshow Management</title>
     </head>
+
     <body>
-        <div class="col-sm-12 col-xl-12">
+        <div class="col-sm-12 col-xl-12 p-4">
             <div class="bg-secondary rounded h-100 p-4">
                 <h6 class="mb-4">Add New Slide</h6>
 
                 <form action="index.php?p=slideshow" method="post" enctype="multipart/form-data">
-                <div class="row mb-3">
+                    <div class="row mb-3">
                         <label for="inputTitle" class="col-sm-2 col-form-label d-none">ID</label>
                         <div class="col-sm-10 d-none">
                             <input type="number" placeholder="ID" name="ssid" class="form-control" id="inputTitle">
@@ -99,7 +81,7 @@ else{ ?>
                 </form>
             </div>
         </div>
-        <div class="col-12">
+        <div class="col-12 p-4">
             <div class="bg-secondary rounded h-100 p-4">
                 <h6 class="mb-4">Slideshow Table</h6>
                 <div class="table-responsive">
@@ -118,9 +100,9 @@ else{ ?>
                         </thead>
                         <tbody>
                             <?php if ($data): ?>
-                                <!-- index is just number for count start from 0 -->
 
-                                <?php foreach ($data as $index => $row):?>
+                                <!-- index is just number for count start from 0 -->
+                                <?php foreach ($data as $index => $row): ?>
                                     <tr>
                                         <th scope="row"><?php echo $index + 1; ?></th>
                                         <td><?php echo $row['title']; ?></td>
@@ -132,9 +114,16 @@ else{ ?>
                                         </td>
                                         <td><?php echo $row['ssenable'] ? 'Yes' : 'No'; ?></td>
                                         <td>
-                                            <a href="index.php?p=slideshow&inid=<?php echo $row['ssid']; ?>" class="btn btn-outline-warning m-2">Edit</a>
-                                            <a href="index.php?p=slideshow&deid=<?php echo $row['ssid']; ?>" class="btn btn-outline-danger m-2">Delete</a>
-                                            <button type="submit" class="btn btn-outline-danger m-2">Delete</button>
+                                            <!-- Edit Form -->
+                                            <form action="index.php?p=slideshow" method="post" style="display: inline;" enctype="multipart/form-data">
+                                                <input type="hidden" name="ssid" value="<?= $row['ssid']; ?>">
+                                                <button type="submit" name="edit" class="btn btn-outline-success m-2">Edit</button>
+                                            </form>
+                                            <!-- Delete Form -->
+                                            <form action="index.php?p=slideshow" method="post" style="display: inline;" enctype="multipart/form-data">
+                                                <input type="hidden" name="ssid" value="<?= $row['ssid']; ?>">
+                                                <button type="submit" name="delete" class="btn btn-outline-danger m-2">Delete</button>
+                                            </form>
                                         </td>
                                     </tr>
                                 <?php endforeach; ?>
@@ -149,6 +138,6 @@ else{ ?>
             </div>
         </div>
     </body>
+
     </html>
 <?php } ?>
-

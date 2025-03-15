@@ -3,6 +3,30 @@ $uploadDir = __DIR__ . '/../../img/';
 if (!is_dir($uploadDir)) {
     mkdir($uploadDir, 0755, true);
 }
+if(isset($_POST['delete']) && $_GET['p'] == 'slideshow'){
+    $id = $_POST['ssid'];
+    $errors = [];
+    $success = "";
+    $table = "slideshow";
+    $criteria = "ssid = $id";
+    $result = dbSelect($table, "*", $criteria);
+    if ($result) {
+        $row = mysqli_fetch_assoc($result);
+        $image = $row['ssimage'];
+        $dest = $uploadDir . $image;
+        if (file_exists($dest)) {
+            unlink($dest);
+        }
+        $criteria = "ssid = $id";
+        $result = dbDelete($table, $criteria);
+        if ($result) {
+            $success = "Record deleted successfully.";
+            echo '<div class="alert alert-success">Slide deleted successfully!</div>';
+        } else {
+            $errors[] = "Failed to delete record.";
+        }
+    }
+}
 
 if (isset($_POST['update']) && $_GET['p'] === 'slideshow') { 
     $sucORerr = 1;
@@ -17,7 +41,14 @@ if (isset($_POST['update']) && $_GET['p'] === 'slideshow') {
         die("Error: Slide ID not found in database.");
     }
 
-    $fileName = (!empty($_FILES['ssimage']['name'])) ? $_FILES['ssimage']['name'] : $row['ssimage'];
+    if(!empty($_FILES['ssimage']['name'])){
+        $uniqueToken = bin2hex(random_bytes(16)); // 16 bytes = 32-character token
+        $fileExtension = pathinfo($_FILES['ssimage']['name'], PATHINFO_EXTENSION);
+        $fileName = $uniqueToken . ($fileExtension ? '.' . $fileExtension : ''); // Add extension if available
+    }
+    else{
+        $fileName = $row['ssimage'];
+    }
 
     if (!empty($_FILES['ssimage']['name'])) {
         $fileTmp = $_FILES['ssimage']['tmp_name'];
@@ -26,10 +57,6 @@ if (isset($_POST['update']) && $_GET['p'] === 'slideshow') {
         
         if ($fileError !== UPLOAD_ERR_OK) {
             die("Error uploading file.");
-        }
-
-        if ($fileSize > 2 * 1024 * 1024) {
-            die("Error: File size exceeds 2MB.");
         }
 
         $finfo = finfo_open(FILEINFO_MIME_TYPE);
@@ -41,8 +68,8 @@ if (isset($_POST['update']) && $_GET['p'] === 'slideshow') {
         }
 
         $dest = $uploadDir . $fileName;
-        if (file_exists($dest)) {
-            unlink($dest); // Overwrite existing file
+        if (file_exists($uploadDir . $row['ssimage'])) {
+            unlink($uploadDir . $row['ssimage']); // Overwrite existing file
         }
 
         move_uploaded_file($fileTmp, $dest);

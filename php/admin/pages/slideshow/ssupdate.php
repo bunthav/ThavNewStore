@@ -1,5 +1,4 @@
 <?php
-// Retrieve existing data from the database
 $table = "slideshow";
 $criteria = "ssid = $id";
 $result = dbSelect($table, "*", $criteria);
@@ -14,7 +13,6 @@ if ($result) {
     $image = $row['ssimage'];
     $enable = $row['ssenable'];
 } else {
-    // Default values if no data found
     $title = '';
     $subtitle = '';
     $link = '';
