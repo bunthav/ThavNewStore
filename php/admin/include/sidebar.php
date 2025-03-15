@@ -52,6 +52,11 @@
                 <i class="fa fa-bag-shopping me-2"></i>Products
             </a>
 
+            <a href="index.php?p=shipment" class="nav-item nav-link 
+                    <?php echo ($p == 'shipment' ? 'active' : ''); ?>">
+                <i class="fa fa-truck me-2"></i>Shipment
+            </a>
+
             <a href="index.php?p=orders" class="nav-item nav-link 
                     <?php echo ($p == "orders" ? 'active' : ''); ?>">
                 <i class="fa fa-business-time me-2"></i>Orders

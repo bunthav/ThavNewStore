@@ -45,6 +45,12 @@ if (isset($_GET['p'])) {
             $update = "./pages/category/categoryupdatehandle.php";
             $dashboard = false;
             break;
+        case "shipment":
+            $page = "./pages/shipments/shipment.php";
+            $insert = "./pages/shipments/shipmenthandle.php";
+            $update = "./pages/shipments/shipmentupdatehandle.php";
+            $dashboard = false;
+            break;
         case "orders":
             $page = "./pages/orders/orders.php";
             $insert = "./pages/orders/ordershandle.php";
