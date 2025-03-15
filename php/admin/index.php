@@ -14,7 +14,7 @@ $id = "";
 
 if (isset($_GET['p'])) {
     $p = $_GET['p'];
-    $id = $_GET['inid'] ?? ''; // Assign $id if 'id' is provided in the URL
+    $id = $_GET['inid'] ?? ''; 
 
     switch ($p) {
         case "admin":
@@ -53,6 +53,11 @@ if (isset($_GET['p'])) {
         case "accounts":
             $page = "./pages/cusAccounts/accounts.php";
             $insert = "./pages/cusAccounts/accountshandle.php";
+            $dashboard = false;
+            break;
+        case "test":
+            $page = "./test/test.php";
+            $insert = "./test/testhandle.php";
             $dashboard = false;
             break;
         default:

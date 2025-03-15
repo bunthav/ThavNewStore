@@ -56,14 +56,15 @@ if (isset($_POST['update']) && $_GET['p'] === 'category') {
         if (!in_array($fileType, $allowTypes)) {
             $errors[] = "Please choose only jpeg, png, gif, jpg, or webp.";
         } else {
-            $fileName = $_FILES['catimage']['name'];
-            $finalPath = $catdir . $fileName;
-
+            $fileName = $row['catimage'];
+    
             // Delete old image before 
-            if (file_exists($finalPath)) {
-                unlink($finalPath);
+            if (file_exists($catdir . $fileName)) {
+                unlink($catdir . $fileName);
             }
 
+            $fileName = $_FILES['catimage']['name'];
+            $finalPath = $catdir . $fileName;
             if (!move_uploaded_file($fileTmp, $finalPath)) {
                 $errors[] = "Can't upload file!";
             } else {

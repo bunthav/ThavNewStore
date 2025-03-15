@@ -1,14 +1,13 @@
-	
 	<!-- Header -->
 	<header class="header-v3">
 		<!-- Header desktop -->
 		<div class="container-menu-desktop trans-03">
 			<div class="wrap-menu-desktop">
 				<nav class="limiter-menu-desktop p-l-45">
-					
-					<!-- Logo desktop -->		
+
+					<!-- Logo desktop -->
 					<a href="index.php" class="logo">
-						<img src="images/icons/logo-02.png" alt="IMG-LOGO">
+						<img src="./admin/img/icons/logo-02.png" alt="IMG-LOGO">
 					</a>
 
 					<!-- Menu desktop -->
@@ -23,7 +22,7 @@
 							</li>
 
 							<li class="label1" data-label1="hot">
-								<a href="index.php?p=shoping-cart" <?php echo ($p == "shoping-cart" ? 'class="active"' : ''); ?>>Features</a>
+								<a href="index.php?p=shoping-cart" <?php echo ($p == "shoping-cart" ? 'class="active"' : ''); ?>>Cart</a>
 							</li>
 
 							<li>
@@ -38,16 +37,16 @@
 								<a href="index.php?p=contact" <?php echo ($p == "contact" ? 'class="active"' : ''); ?>>Contact</a>
 							</li>
 						</ul>
-					</div>	
+					</div>
 
 					<!-- Icon header -->
-					<div class="wrap-icon-header flex-w flex-r-m h-full">							
+					<div class="wrap-icon-header flex-w flex-r-m h-full">
 						<div class="flex-c-m h-full p-r-25 bor6">
 							<div class="icon-header-item cl0 hov-cl1 trans-04 p-lr-11 icon-header-noti js-show-cart" data-notify="2">
 								<i class="zmdi zmdi-shopping-cart"></i>
 							</div>
 						</div>
-							
+
 						<div class="flex-c-m h-full p-lr-19">
 							<div class="icon-header-item  hov-cl1 trans-04 p-lr-11 js-show-sidebar">
 								<i class="zmdi zmdi-menu"></i>
@@ -55,14 +54,14 @@
 						</div>
 					</div>
 				</nav>
-			</div>	
+			</div>
 		</div>
 
 		<!-- Header Mobile -->
 		<div class="wrap-header-mobile">
-			<!-- Logo moblie -->		
+			<!-- Logo moblie -->
 			<div class="logo-mobile">
-				<a href="index.php"><img src="images/icons/logo-01.png" alt="IMG-LOGO"></a>
+				<a href="index.php"><img src="./admin/img/icons/logo-01.png" alt="IMG-LOGO"></a>
 			</div>
 
 			<!-- Icon header -->
@@ -178,56 +177,56 @@
 					<div class="flex-w flex-sb p-t-36 gallery-lb">
 						<!-- item gallery sidebar -->
 						<div class="wrap-item-gallery m-b-10">
-							<a class="item-gallery bg-img1" href="images/gallery-01.jpg" data-lightbox="gallery" 
-							style="background-image: url('images/gallery-01.jpg');"></a>
+							<a class="item-gallery bg-img1" href="images/gallery-01.jpg" data-lightbox="gallery"
+								style="background-image: url('images/gallery-01.jpg');"></a>
 						</div>
 
 						<!-- item gallery sidebar -->
 						<div class="wrap-item-gallery m-b-10">
-							<a class="item-gallery bg-img1" href="images/gallery-02.jpg" data-lightbox="gallery" 
-							style="background-image: url('images/gallery-02.jpg');"></a>
+							<a class="item-gallery bg-img1" href="images/gallery-02.jpg" data-lightbox="gallery"
+								style="background-image: url('images/gallery-02.jpg');"></a>
 						</div>
 
 						<!-- item gallery sidebar -->
 						<div class="wrap-item-gallery m-b-10">
-							<a class="item-gallery bg-img1" href="images/gallery-03.jpg" data-lightbox="gallery" 
-							style="background-image: url('images/gallery-03.jpg');"></a>
+							<a class="item-gallery bg-img1" href="images/gallery-03.jpg" data-lightbox="gallery"
+								style="background-image: url('images/gallery-03.jpg');"></a>
 						</div>
 
 						<!-- item gallery sidebar -->
 						<div class="wrap-item-gallery m-b-10">
-							<a class="item-gallery bg-img1" href="images/gallery-04.jpg" data-lightbox="gallery" 
-							style="background-image: url('images/gallery-04.jpg');"></a>
+							<a class="item-gallery bg-img1" href="images/gallery-04.jpg" data-lightbox="gallery"
+								style="background-image: url('images/gallery-04.jpg');"></a>
 						</div>
 
 						<!-- item gallery sidebar -->
 						<div class="wrap-item-gallery m-b-10">
-							<a class="item-gallery bg-img1" href="images/gallery-05.jpg" data-lightbox="gallery" 
-							style="background-image: url('images/gallery-05.jpg');"></a>
+							<a class="item-gallery bg-img1" href="images/gallery-05.jpg" data-lightbox="gallery"
+								style="background-image: url('images/gallery-05.jpg');"></a>
 						</div>
 
 						<!-- item gallery sidebar -->
 						<div class="wrap-item-gallery m-b-10">
-							<a class="item-gallery bg-img1" href="images/gallery-06.jpg" data-lightbox="gallery" 
-							style="background-image: url('images/gallery-06.jpg');"></a>
+							<a class="item-gallery bg-img1" href="images/gallery-06.jpg" data-lightbox="gallery"
+								style="background-image: url('images/gallery-06.jpg');"></a>
 						</div>
 
 						<!-- item gallery sidebar -->
 						<div class="wrap-item-gallery m-b-10">
-							<a class="item-gallery bg-img1" href="images/gallery-07.jpg" data-lightbox="gallery" 
-							style="background-image: url('images/gallery-07.jpg');"></a>
+							<a class="item-gallery bg-img1" href="images/gallery-07.jpg" data-lightbox="gallery"
+								style="background-image: url('images/gallery-07.jpg');"></a>
 						</div>
 
 						<!-- item gallery sidebar -->
 						<div class="wrap-item-gallery m-b-10">
-							<a class="item-gallery bg-img1" href="images/gallery-08.jpg" data-lightbox="gallery" 
-							style="background-image: url('images/gallery-08.jpg');"></a>
+							<a class="item-gallery bg-img1" href="images/gallery-08.jpg" data-lightbox="gallery"
+								style="background-image: url('images/gallery-08.jpg');"></a>
 						</div>
 
 						<!-- item gallery sidebar -->
 						<div class="wrap-item-gallery m-b-10">
-							<a class="item-gallery bg-img1" href="images/gallery-09.jpg" data-lightbox="gallery" 
-							style="background-image: url('images/gallery-09.jpg');"></a>
+							<a class="item-gallery bg-img1" href="images/gallery-09.jpg" data-lightbox="gallery"
+								style="background-image: url('images/gallery-09.jpg');"></a>
 						</div>
 					</div>
 				</div>
@@ -238,7 +237,7 @@
 					</span>
 
 					<p class="stext-108 cl6 p-t-27">
-						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur maximus vulputate hendrerit. Praesent faucibus erat vitae rutrum gravida. Vestibulum tempus mi enim, in molestie sem fermentum quis. 
+						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur maximus vulputate hendrerit. Praesent faucibus erat vitae rutrum gravida. Vestibulum tempus mi enim, in molestie sem fermentum quis.
 					</p>
 				</div>
 			</div>
@@ -260,7 +259,7 @@
 					<i class="zmdi zmdi-close"></i>
 				</div>
 			</div>
-			
+
 			<div class="header-cart-content flex-w js-pscroll">
 				<ul class="header-cart-wrapitem w-full">
 					<li class="header-cart-item flex-w flex-t m-b-12">
@@ -311,7 +310,7 @@
 						</div>
 					</li>
 				</ul>
-				
+
 				<div class="w-full">
 					<div class="header-cart-total w-full p-tb-40">
 						Total: $75.00

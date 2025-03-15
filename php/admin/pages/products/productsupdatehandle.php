@@ -23,7 +23,6 @@ if (isset($_POST['update']) && $_GET['p'] === 'products') {
     if (empty($_FILES['pro_image']['tmp_name'])) {
         $fileName = $row['pro_image'];
     } else {
-        $fileName = $_FILES['pro_image']['name'];
         $fileTmp = $_FILES['pro_image']['tmp_name'];
         $fileType = mime_content_type($fileTmp);
         $allowTypes = ['image/jpeg', 'image/png', 'image/gif', 'image/jpg', 'image/webp'];
@@ -31,12 +30,13 @@ if (isset($_POST['update']) && $_GET['p'] === 'products') {
         if (!in_array($fileType, $allowTypes)) {
             $errors[] = "Please choose only jpeg, png, gif, jpg, or webp.";
         } else {
-            $finalProDir = $prodir . $fileName;
-
-            if (file_exists($finalProDir)) {
-                unlink($finalProDir); // Overwrite existing file
+            
+            if (file_exists($prodir . $row['pro_image'])) {
+                unlink($prodir . $row['pro_image']); 
             }
 
+            $fileName = $_FILES['pro_image']['name'];
+            $finalProDir = $prodir . $fileName;
             if (!move_uploaded_file($fileTmp, $finalProDir)) {
                 $errors[] = "Can't upload file!";
             } else {

@@ -62,6 +62,7 @@ else {
                     <th scope="col">#</th>
                     <th scope="col">Products Name</th>
                     <th scope="col">Products Category</th>
+                    <th scope="col"> Products Description</th>
                     <th scope="col">Products Image</th>
                     <th scope="col">Action</th>
                 </tr>
@@ -72,6 +73,7 @@ else {
                         <th scope="row"><?php echo $index + 1; ?></th>
                         <td><?= $joinrow['pro_name']; ?></td>
                         <td><?= $joinrow['pro_catname']; ?></td>
+                        <td><?= $joinrow['pro_description']?></td>
                         <td>
                             <img src="./img/pro/<?= $joinrow['pro_image']; ?>" width="200" alt="<?= $joinrow['pro_name']; ?>">
                         </td>

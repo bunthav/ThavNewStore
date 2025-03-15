@@ -13,7 +13,11 @@ if (isset($_POST['insert']) && $p === 'slideshow') {
         $errors[] = 'Please select an image.';
         $sucORerr = 0;
     } else {
-        $fileName = $_FILES['ssimage']['name'];
+        // Generate a unique token for the file name
+        $uniqueToken = bin2hex(random_bytes(16)); // 16 bytes = 32-character token
+        $fileExtension = pathinfo($_FILES['ssimage']['name'], PATHINFO_EXTENSION);
+        $fileName = $uniqueToken . ($fileExtension ? '.' . $fileExtension : ''); // Add extension if available
+
         $fileTmp = $_FILES['ssimage']['tmp_name'];
         $fileSize = $_FILES['ssimage']['size'];
         $fileError = $_FILES['ssimage']['error'];
